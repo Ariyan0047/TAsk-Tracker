@@ -1,5 +1,3 @@
-import React from "react";
-
 const Button = () => {
   const btnClasses = "btn btn-outline-danger btn-lg text-uppercase w-100";
 
@@ -10,9 +8,9 @@ const Button = () => {
 
   return (
     <div>
-      <a href="#" className={btnClasses} onClick={btnClick}>
+      <button href="#" className={btnClasses} onClick={btnClick}>
         close
-      </a>
+      </button>
     </div>
   );
 };
