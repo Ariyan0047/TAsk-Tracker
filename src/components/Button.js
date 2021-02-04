@@ -1,15 +1,8 @@
-const Button = () => {
-  const btnClasses = "btn btn-outline-danger btn-lg text-uppercase w-100";
-
-  // HEADER BUTTON CLICK FUNCTION
-  const btnClick = () => {
-    alert("BUTTON IS CLICKED !!!!!");
-  };
-
+const Button = ({ className, text, btnClick }) => {
   return (
     <div>
-      <button href="#" className={btnClasses} onClick={btnClick}>
-        close
+      <button className={className} onClick={btnClick}>
+        {text}
       </button>
     </div>
   );

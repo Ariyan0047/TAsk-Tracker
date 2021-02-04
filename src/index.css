@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Potta+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap");
 
 * {
   box-sizing: border-box;
@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Potta One", cursive !important;
+  font-family: "Big Shoulders Display", cursive !important;
 }
 
 .mainContainer {
@@ -20,9 +20,27 @@ body {
 }
 
 .wrapper {
-  width: 60%;
-  height: 60%;
-  padding: 2rem;
-  margin: 4rem auto;
+  padding: 1rem;
+  margin: 2rem auto;
   background: #ddd;
+}
+
+.btn {
+  border-radius: 0 !important;
+}
+
+.items {
+  margin: 0.2rem 0 0 0;
+  border-radius: 0 !important;
+  border-top: 0.1rem solid #666 !important;
+  border-bottom: 0.1rem solid #666 !important;
+  border-left: 0.2rem solid #444 !important;
+  border-right: 0.2rem solid #444 !important;
+  background: #ddd !important;
+}
+
+.items p {
+  font-size: 1.4rem;
+  margin: 0 !important;
+  padding: 0 !important;
 }
