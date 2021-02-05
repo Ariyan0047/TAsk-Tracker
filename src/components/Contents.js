@@ -18,7 +18,7 @@ const Contents = () => {
   };
 
   return (
-    <div className="wrapper container text-uppercase text-center">
+    <div className="wrapper container text-uppercase text-left p-2">
       {tasks.map((task) => (
         <Tasks task={task} />
       ))}
