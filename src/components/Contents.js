@@ -1,30 +1,52 @@
 import Button from "./Button";
 import Tasks from "./Tasks";
+import AddTasks from "./AddTasks";
 import { useState } from "react";
 
 const Contents = () => {
   const [tasks, setTasks] = useState([
-    { name: "frank", profession: "frontend developer" },
-    { name: "joe", profession: "ui/ux designer" },
-    { name: "calie", profession: "backend developer" },
-    { name: "phill", profession: "androoid developer" },
+    { id: 1, name: "frank", profession: "frontend developer", hired: true },
+    { id: 2, name: "joe", profession: "ui/ux designer", hired: false },
+    { id: 3, name: "calie", profession: "backend developer", hired: true },
+    { id: 4, name: "phill", profession: "android developer", hired: false },
   ]);
 
-  const btnClassInfo = "btn btn-outline-info btn-lg text-uppercase w-100";
+  const noItem = "display-3 text-center text-muted";
 
-  // HEADER BUTTON CLICK FUNCTION
-  const btnClick = () => {
-    alert("BUTTON IS CLICKED !!!!!");
+  // DELETING ENTIRES
+  const deleteItem = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  // TODDLE REMINDER
+  const toggleReminder = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id
+          ? {
+              ...task,
+              hired: !task.hired,
+            }
+          : task
+      )
+    );
   };
 
   return (
     <div className="wrapper container text-uppercase text-left p-2">
-      {tasks.map((task) => (
-        <Tasks task={task} />
-      ))}
-      <div className="w-100 mt-2">
-        <Button className={btnClassInfo} text="add" btnClick={btnClick} />
-      </div>
+      {tasks.length > 0 ? (
+        tasks.map((task) => (
+          <Tasks
+            key={task.id}
+            task={task}
+            onDelete={deleteItem}
+            onToggle={toggleReminder}
+          />
+        ))
+      ) : (
+        <h1 className={noItem}>No Item To Show</h1>
+      )}
+      <AddTasks />
     </div>
   );
 };
