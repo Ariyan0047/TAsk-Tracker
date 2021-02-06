@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Button from "./Button";
 
-const AddTasks = () => {
+const AddTasks = ({ onAdd }) => {
   const [name, setName] = useState("");
   const [profession, setProfession] = useState("");
-  const [reminder, setreminder] = useState(false);
+  const [hired, setHired] = useState(false);
 
   const btnClassInfo = "btn btn-outline-info btn-lg text-uppercase w-100";
 
@@ -12,8 +12,23 @@ const AddTasks = () => {
     console.log("CLICKED");
   };
 
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    if (!name) {
+      alert("ADD TEXT");
+      return;
+    }
+
+    onAdd({ name, profession, hired });
+
+    setName("");
+    setProfession("");
+    setHired(false);
+  };
+
   return (
-    <form className="form-control">
+    <form className="form-control" onSubmit={onSubmit}>
       <div className="mt-2">
         <label htmlFor="name" className="text-uppercase">
           name
@@ -47,8 +62,9 @@ const AddTasks = () => {
         <input
           type="checkbox"
           id="reminder"
-          value={reminder}
-          onChange={(e) => setreminder(e.currentTarget.checked)}
+          checked={hired}
+          value={hired}
+          onChange={(e) => setHired(e.currentTarget.checked)}
         />
       </div>
       <div className="w-100 mt-2">

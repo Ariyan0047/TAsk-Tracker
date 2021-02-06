@@ -13,6 +13,13 @@ const Contents = () => {
 
   const noItem = "display-3 text-center text-muted";
 
+  // ADDING TASKS
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 1000) + 1;
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask]);
+  };
+
   // DELETING ENTIRES
   const deleteItem = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
@@ -46,7 +53,7 @@ const Contents = () => {
       ) : (
         <h1 className={noItem}>No Item To Show</h1>
       )}
-      <AddTasks />
+      <AddTasks onAdd={addTask} />
     </div>
   );
 };
